@@ -31,6 +31,11 @@ app.get('/restaurants/:storeId', (req, res) => {
   res.render('show', { cssStyle: showCss, store })
 })
 
+// set search route
+app.get('/search', (req, res) => {
+  res.render('index', { cssStyle: indexCss, store: restaurantList.results })
+})
+
 // set listener on app
 app.listen(port, () => {
   console.log(`This website is on "http://localhost:${port}"`)
