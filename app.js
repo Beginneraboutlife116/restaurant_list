@@ -11,6 +11,9 @@ app.set('view engine', 'handlebars')
 // set static files
 app.use(express.static('public'))
 
+// import restaurant.json
+const restaurantList = require('./restaurant.json')
+
 // set the main index page
 app.get('/', (req, res) => {
   res.render('index')
