@@ -33,7 +33,10 @@ app.get('/restaurants/:storeId', (req, res) => {
 
 // set search route
 app.get('/search', (req, res) => {
-  res.render('index', { cssStyle: indexCss, store: restaurantList.results })
+  const stores = restaurantList.results.filter(function filterStores(store) {
+    return store.name.toLowerCase().includes(req.query.keyword.trim().toLowerCase()) || store.category.toLowerCase().includes(req.query.keyword.trim().toLowerCase())
+  })
+  res.render('index', { cssStyle: indexCss, stores })
 })
 
 // set listener on app
