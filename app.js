@@ -7,3 +7,13 @@ const exphbs = require('express-handlebars')
 // set handlebars as view engine
 app.engine('handlebars', exphbs({ defaultLayout: 'main' }))
 app.set('view engine', 'handlebars')
+
+// set the main index page
+app.get('/', (req, res) => {
+  res.render('index')
+})
+
+// set listener on app
+app.listen(port, () => {
+  console.log(`This website is on "http://localhost:${port}"`)
+})
