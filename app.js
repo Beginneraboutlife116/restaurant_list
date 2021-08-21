@@ -16,8 +16,14 @@ const restaurantList = require('./restaurant.json')
 
 // set the main index page
 app.get('/', (req, res) => {
-  const cssStyle = "index_page.css"
-  res.render('index', { restaurants: restaurantList.results, cssStyle })
+  const indexCss = "index_page.css"
+  res.render('index', { cssStyle: indexCss, restaurants: restaurantList.results })
+})
+
+// set the show page of restaurant
+app.get('/restaurants/:storeId', (req, res) => {
+  const showCss = "show_page.css"
+  res.render('show', { cssStyle: showCss, })
 })
 
 // set listener on app
