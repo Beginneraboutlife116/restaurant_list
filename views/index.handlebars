@@ -20,6 +20,7 @@
 <div class="container mt-5">
   <div class="row">
     <div class="col-md-10 col-12 mx-auto">
+      {{#if foundStoresLength}}
       <div class="card-columns">
         {{#each stores}}
         <a href="/restaurants/{{this.id}}" class="text-secondary">
@@ -43,6 +44,12 @@
         </a>
         {{/each}}
       </div>
+      {{else}}
+      <div class="notice-block">
+        <h1 class="notice">很抱歉，查不到該關鍵字相關餐廳</h1>
+        <img class="oops-picture mt-4" src="/emoji_u1f914.png" alt="OOPS!">
+      </div>
+      {{/if}}
     </div>
   </div>
 </div>

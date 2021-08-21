@@ -37,7 +37,8 @@ app.get('/search', (req, res) => {
   const stores = restaurantList.results.filter(function filterStores(store) {
     return store.name.toLowerCase().includes(keyword.trim().toLowerCase()) || store.category.toLowerCase().includes(keyword.trim().toLowerCase())
   })
-  res.render('index', { cssStyle: indexCss, stores, keyword })
+  const foundStoresLength = stores.length
+  res.render('index', { cssStyle: indexCss, stores, keyword, foundStoresLength })
 })
 
 // set listener on app
