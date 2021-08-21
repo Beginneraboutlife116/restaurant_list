@@ -23,7 +23,9 @@ app.get('/', (req, res) => {
 // set the show page of restaurant
 app.get('/restaurants/:storeId', (req, res) => {
   const showCss = "show_page.css"
-  const store = restaurantList.results[0]
+  const store = restaurantList.results.find(function findStore(store) {
+    return store.id.toString() === req.params.storeId
+  })
   res.render('show', { cssStyle: showCss, store })
 })
 
