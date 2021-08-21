@@ -17,10 +17,11 @@ const restaurantList = require('./restaurant.json')
 // cssStyle
 const indexCss = "index_page.css"
 const showCss = "show_page.css"
+let foundStoresLength = true
 
 // set the main index page
 app.get('/', (req, res) => {
-  res.render('index', { cssStyle: indexCss, stores: restaurantList.results })
+  res.render('index', { cssStyle: indexCss, stores: restaurantList.results, foundStoresLength })
 })
 
 // set the show page of restaurant
@@ -37,7 +38,7 @@ app.get('/search', (req, res) => {
   const stores = restaurantList.results.filter(function filterStores(store) {
     return store.name.toLowerCase().includes(keyword.trim().toLowerCase()) || store.category.toLowerCase().includes(keyword.trim().toLowerCase())
   })
-  const foundStoresLength = stores.length
+  foundStoresLength = stores.length
   res.render('index', { cssStyle: indexCss, stores, keyword, foundStoresLength })
 })
 
