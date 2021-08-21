@@ -23,7 +23,8 @@ app.get('/', (req, res) => {
 // set the show page of restaurant
 app.get('/restaurants/:storeId', (req, res) => {
   const showCss = "show_page.css"
-  res.render('show', { cssStyle: showCss, })
+  const store = restaurantList.results[0]
+  res.render('show', { cssStyle: showCss, store })
 })
 
 // set listener on app
