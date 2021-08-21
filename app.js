@@ -16,7 +16,7 @@ const restaurantList = require('./restaurant.json')
 
 // set the main index page
 app.get('/', (req, res) => {
-  res.render('index')
+  res.render('index', { restaurants: restaurantList.results })
 })
 
 // set listener on app
