@@ -14,15 +14,17 @@ app.use(express.static('public'))
 // import restaurant.json
 const restaurantList = require('./restaurant.json')
 
+// cssStyle
+const indexCss = "index_page.css"
+const showCss = "show_page.css"
+
 // set the main index page
 app.get('/', (req, res) => {
-  const indexCss = "index_page.css"
   res.render('index', { cssStyle: indexCss, stores: restaurantList.results })
 })
 
 // set the show page of restaurant
 app.get('/restaurants/:storeId', (req, res) => {
-  const showCss = "show_page.css"
   const store = restaurantList.results.find(function findStore(store) {
     return store.id.toString() === req.params.storeId
   })
