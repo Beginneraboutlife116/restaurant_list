@@ -17,7 +17,7 @@ const restaurantList = require('./restaurant.json')
 // set the main index page
 app.get('/', (req, res) => {
   const indexCss = "index_page.css"
-  res.render('index', { cssStyle: indexCss, restaurants: restaurantList.results })
+  res.render('index', { cssStyle: indexCss, stores: restaurantList.results })
 })
 
 // set the show page of restaurant
