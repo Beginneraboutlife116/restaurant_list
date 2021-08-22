@@ -29,7 +29,7 @@
               alt="{{this.name}}">
             <div class="card-body p-3">
               <h6 class="card-title mb-1">{{this.name}}</h6>
-
+              <h6 class="card-title mb-1">{{this.name_en}}</h6>
               <div class="restaurant-category mb-1">
                 <i class="fas fa-utensils pr-2"></i> {{this.category}}
               </div>
@@ -46,7 +46,7 @@
       </div>
       {{else}}
       <div class="notice-block">
-        <h1 class="notice">很抱歉，查不到該關鍵字相關餐廳</h1>
+        <h1 class="notice">很抱歉，查不到"{{keyword}}"相關餐廳</h1>
         <img class="oops-picture mt-4" src="/images/emoji_u1f914.png" alt="OOPS!">
       </div>
       {{/if}}

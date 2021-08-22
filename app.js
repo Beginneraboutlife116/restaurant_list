@@ -36,7 +36,7 @@ app.get('/restaurants/:storeId', (req, res) => {
 app.get('/search', (req, res) => {
   const keyword = req.query.keyword
   const stores = restaurantList.results.filter(store => 
-    store.name.toLowerCase().includes(keyword.trim().toLowerCase()) || store.category.toLowerCase().includes(keyword.trim().toLowerCase())
+    store.name.toLowerCase().includes(keyword.trim().toLowerCase()) || store.category.toLowerCase().includes(keyword.trim().toLowerCase()) || store.name_en.toLowerCase().includes(keyword.trim().toLowerCase())
   )
   let foundStoresLength = stores.length
   res.render('index', { cssStyle: indexCss, stores, keyword, foundStoresLength })
