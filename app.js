@@ -20,24 +20,24 @@ const showCss = "show_page.css"
 
 // set the main index page
 app.get('/', (req, res) => {
-  let foundStoresLength = 1
+  let foundStoresLength = restaurantList.results.length
   res.render('index', { cssStyle: indexCss, stores: restaurantList.results, foundStoresLength })
 })
 
 // set the show page of restaurant
 app.get('/restaurants/:storeId', (req, res) => {
-  const store = restaurantList.results.find(function findStore(store) {
-    return store.id.toString() === req.params.storeId
-  })
+  const store = restaurantList.results.find(store => 
+    store.id.toString() === req.params.storeId
+  )
   res.render('show', { cssStyle: showCss, store })
 })
 
 // set search route
 app.get('/search', (req, res) => {
   const keyword = req.query.keyword
-  const stores = restaurantList.results.filter(function filterStores(store) {
-    return store.name.toLowerCase().includes(keyword.trim().toLowerCase()) || store.category.toLowerCase().includes(keyword.trim().toLowerCase())
-  })
+  const stores = restaurantList.results.filter(store => 
+    store.name.toLowerCase().includes(keyword.trim().toLowerCase()) || store.category.toLowerCase().includes(keyword.trim().toLowerCase())
+  )
   let foundStoresLength = stores.length
   res.render('index', { cssStyle: indexCss, stores, keyword, foundStoresLength })
 })
