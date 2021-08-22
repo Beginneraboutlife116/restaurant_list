@@ -33,3 +33,6 @@ It's a restaurant list for users to search some good taste.
 <pre><code>nodemon app.js</code></pre>
 6. You will see `This website is on "http://localhost:3000"` on the terminal.
 Now, you could use http:localhost:3000 to see the restaurant list!!:tada::tada::tada:
+
+### Contributor
+- WeiKai
